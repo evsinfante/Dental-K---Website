@@ -1,0 +1,30 @@
+{
+  "name": "dental-k",
+  "version": "0.1.0",
+  "description": "Sitio web de Dental K — odontopediatría con cariño",
+  "productName": "Dental K",
+  "author": "Evelyn Infante",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "postinstall": "quasar prepare"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.17",
+    "quasar": "^2.18.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^2.2.0",
+    "@types/node": "^22.10.0",
+    "autoprefixer": "^10.4.20",
+    "typescript": "~5.7.2"
+  },
+  "engines": {
+    "node": "^20 || ^22 || ^24",
+    "npm": ">= 8.0.0"
+  }
+}

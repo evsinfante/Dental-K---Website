@@ -1,0 +1,33 @@
+// Paleta Dental K
+// Basada en el logo y en la "Propuesta creativa y rebranding".
+// Quasar inyecta este archivo automáticamente en app.scss y en el <style lang="scss"> de cada componente.
+
+// --- Colores de marca (Quasar) ---
+$primary: #5d3867;   // morado del logo
+$secondary: #7f4ca5; // morado medio
+$accent: #8f1fcf;    // violeta vivo: solo botones y detalles
+
+$dark: #1d1d1d;
+$dark-page: #121212;
+
+$positive: #25d366;  // verde WhatsApp
+$negative: #c10015;
+$info: #b57edc;
+$warning: #f2c037;
+
+// --- Tonos extra de la propuesta ---
+$morado-profundo: #4b1c71; // títulos y fondos oscuros
+$lila: #b57edc;            // decorativo (no usar con texto blanco)
+$lavanda: #dbb6ee;
+$lavanda-suave: #d9c2db;   // fondo del logo circular
+$rosa-nota: #f2dada;       // las notas rosas de la propuesta
+$fondo: #fff0ff;           // fondo general
+$tinta: #2f2a33;           // texto principal (tono de los doodles)
+
+// --- Tipografía ---
+$typography-font-family: 'Quicksand', -apple-system, 'Segoe UI', Roboto, sans-serif;
+$fuente-titulos: 'Fredoka', 'Quicksand', sans-serif;
+
+// --- Formas ---
+$radio: 22px;
+$sombra-suave: 0 10px 30px rgba(75, 28, 113, 0.12);

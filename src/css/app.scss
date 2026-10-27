@@ -1,0 +1,185 @@
+// Estilos globales de Dental K
+
+// ---------- Base ----------
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $tinta;
+  background-color: $fondo;
+  // Cuadrícula de libreta, como la propuesta
+  background-image:
+    linear-gradient(rgba($primary, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($primary, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.titulo {
+  font-family: $fuente-titulos;
+  color: $morado-profundo;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+h1 { font-size: clamp(2.3rem, 6vw, 3.8rem); line-height: 1.05; font-weight: 700; }
+h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.1; font-weight: 700; }
+h3 { font-size: 1.35rem; line-height: 1.25; font-weight: 600; }
+
+p {
+  line-height: 1.7;
+  margin: 0 0 1em;
+}
+
+a {
+  color: $secondary;
+}
+
+// ---------- Layout ----------
+.contenedor {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: 600px) {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.seccion {
+  padding-top: clamp(56px, 9vw, 104px);
+  padding-bottom: clamp(56px, 9vw, 104px);
+  position: relative;
+}
+
+.seccion__encabezado {
+  max-width: 640px;
+  margin: 0 auto 44px;
+  text-align: center;
+
+  p {
+    font-size: 1.08rem;
+    color: rgba($tinta, 0.8);
+    margin-top: 14px;
+  }
+}
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $fuente-titulos;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: $secondary;
+  background: rgba($lavanda, 0.55);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+}
+
+// Subrayado dibujado a mano bajo una palabra
+.subrayado {
+  position: relative;
+  white-space: nowrap;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0.02em;
+    height: 0.38em;
+    background: rgba($lila, 0.55);
+    border-radius: 999px;
+    z-index: -1;
+    transform: rotate(-1.5deg);
+  }
+}
+
+// ---------- Colores extra como clases ----------
+.bg-lavanda { background-color: $lavanda !important; }
+.bg-lavanda-suave { background-color: $lavanda-suave !important; }
+.bg-rosa-nota { background-color: $rosa-nota !important; }
+.bg-fondo { background-color: $fondo !important; }
+.bg-morado-profundo { background-color: $morado-profundo !important; }
+.text-morado-profundo { color: $morado-profundo !important; }
+.text-tinta { color: $tinta !important; }
+
+// ---------- Botones ----------
+.q-btn.btn-marca {
+  font-family: $fuente-titulos;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 10px 24px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($accent, 0.28);
+  }
+}
+
+// ---------- Animación al hacer scroll (directiva v-reveal) ----------
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// ---------- Transición entre páginas ----------
+.pagina-enter-active,
+.pagina-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.pagina-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.pagina-leave-to {
+  opacity: 0;
+}
+
+// ---------- Animaciones reutilizables ----------
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
+}
+
+@keyframes aparecer-rebote {
+  0% { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60% { opacity: 1; transform: scale(1.06) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+// Respeta a quien prefiere menos movimiento
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

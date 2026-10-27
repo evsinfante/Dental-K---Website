@@ -1,0 +1,18 @@
+.DS_Store
+.thumbs.db
+node_modules
+
+# Quasar
+/dist
+/.quasar
+/quasar.config.*.temporary.compiled*
+
+# Editores
+.idea
+*.suo
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+
+npm-debug.log*
+.env.local*
